@@ -1,0 +1,28 @@
+trigger:
+- main
+
+pool:
+  name: devopsfeeds
+
+steps:
+- checkout: self
+
+- task: Maven@4
+  displayName: Build WAR
+  inputs:
+    mavenPomFile: 'pom.xml'
+    goals: 'clean package'
+    publishJUnitResults: true
+    javaHomeOption: 'JDKVersion'
+    jdkVersionOption: '1.8'
+
+- script: |
+    echo "Generated files:"
+    ls -lh target/
+  displayName: Verify WAR
+
+- script: |
+    docker rm -f contmain11 || true
+    docker build --no-cache -t myimage .
+    docker run -d --name contmain11 -p 1234:8080 myimage
+  displayName: Build and Run Docker
