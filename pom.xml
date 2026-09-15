@@ -44,19 +44,19 @@
                     <snapshots>
                       <enabled>true</enabled>
                     </snapshots>
-             </repository>
+            </repository>
     </repositories>
 
     <distributionManagement>
             <repository>
-  <id>myfeed</id>
-  <url>https://pkgs.dev.azure.com/sriharsha0310/pipelines/_packaging/myfeed/maven/v1</url>
-  <releases>
-    <enabled>true</enabled>
-  </releases>
-  <snapshots>
-    <enabled>true</enabled>
-  </snapshots>
+                    <id>myfeed</id>
+                    <url>https://pkgs.dev.azure.com/sriharsha0310/pipelines/_packaging/myfeed/maven/v1</url>
+                    <releases>
+                      <enabled>true</enabled>
+                    </releases>
+                    <snapshots>
+                      <enabled>true</enabled>
+                    </snapshots>
 </repository>
         <snapshotRepository>
             <id>nexusRepo</id>
